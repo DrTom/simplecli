@@ -1,0 +1,42 @@
+simplecli
+=========
+
+Utility functions to ease command line application development with
+[_node.js_](http://nodejs.org/).  This library aims to be unobtrusive,
+simple, minimalistic and easy to use.
+
+
+Install 
+-------
+
+For the time being:
+
+1. install the node package manager [npm](http://npmjs.org/)
+3. change into source 
+4. issue `npm link`
+
+Usage
+------
+
+See the files in the `demo` directory and in particular the tests. 
+
+The option parsing is inspired by
+[js-opts](https://bitbucket.org/mazzarelli/js-opts/wiki/Home);
+however it is not equivalent. I consider this implementation
+a bit more friendly for writing tests because it is possible to
+inject an `argv` array as an alternative to use `process.argv`. The
+parsing function doesn't preserve any _state_, so you can call it
+as many times as you like within a process.
+
+
+Development
+-----------
+
+The source is tiny, straight forward, written in
+[CoffeeScript](http://jashkenas.github.com/coffee-script/) and
+located in the `src` directory.
+
+Tests require the [nodeunit](https://github.com/caolan/nodeunit) framework.
+
+None of the development dependencies is defined in the npm
+package. 

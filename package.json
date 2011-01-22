@@ -1,0 +1,29 @@
+{ "name" : "simplecli"
+
+, "description" : "Utility functions to ease command line application development."
+
+, "tags" : ["cli, command line"]
+
+, "version" : "0.1.0"
+
+, "author" : 
+    { "name" : "Thomas Schank"
+    , "email" : "DrTom@schank.ch"
+    , "url" : "http://Dr.Th.Schank.ch/" 
+    }
+
+, "main": "./lib/simplecli"
+  
+, "directories" : 
+    { "lib" : "./lib" 
+    }
+
+, "engines" : 
+    ["node >=0.2.4"]
+
+, "dependencies": 
+    { 
+    }
+
+
+}
