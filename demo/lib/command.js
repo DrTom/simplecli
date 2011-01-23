@@ -26,6 +26,7 @@ bold = '\033[1m';
 green = '\033[0;32m';
 sayHello = function(argv) {
   argparser.parse({
+    help: true,
     options: [
       {
         short: 'r',
@@ -48,6 +49,7 @@ printTime = function(argv) {
   var iso;
   iso = false;
   argparser.parse({
+    help: true,
     options: [
       {
         short: "i",
@@ -67,6 +69,7 @@ printTime = function(argv) {
   })(new Date()));
 };
 argparser.parse({
+  help: true,
   commands: [
     {
       command: "sayHello",

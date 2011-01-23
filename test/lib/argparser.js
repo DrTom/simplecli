@@ -1,12 +1,26 @@
-var fs, lib, main, parser, path, printer, println, testCase;
+var bindir, child_process, demo, exec, execEnv, fs, lib, libdir, maindir, parser, path, printer, println, testCase, testdir;
 path = require('path');
 fs = require('fs');
-main = path.join(path.dirname(fs.realpathSync(__filename)), '../../');
-lib = main + "lib/";
+child_process = require('child_process');
+exec = child_process.exec;
+maindir = path.join(path.dirname(fs.realpathSync(__filename)), '../../');
+libdir = maindir + "lib/";
+lib = libdir;
+testdir = maindir + "test/";
+bindir = maindir + "bin/";
+demo = maindir + "demo/lib/";
 parser = require(lib + "argparser");
 printer = require(lib + 'printer');
 println = printer.println;
 testCase = require('nodeunit').testCase;
+execEnv = {
+  encoding: 'utf8',
+  timeout: 0,
+  maxBuffer: 200 * 1024,
+  killSignal: 'SIGTERM',
+  cwd: maindir,
+  env: null
+};
 module.exports = testCase({
   "the commands argument is given": function(test) {
     var pargs, testfun;
@@ -59,5 +73,15 @@ module.exports = testCase({
       argv: ["-a", "-v", "XVAL", "--longopt"]
     });
     return test.done();
+  },
+  "help option": function(test) {
+    var cmd;
+    test.expect(2);
+    cmd = "node " + demo + "opts.js --help";
+    return exec(cmd, execEnv, function(err, stdout, sterr) {
+      test.ok(!(err != null));
+      test.ok(stdout.match(/--help/), "'--help' must be present");
+      return test.done();
+    });
   }
 });

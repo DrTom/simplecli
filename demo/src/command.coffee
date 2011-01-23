@@ -33,16 +33,17 @@ green = '\033[0;32m'
 sayHello = (argv) ->
 
   argparser.parse(
+    help : true
     options : [
-      { short: 'r'
-      , long: 'red'
-      , callback: () -> print red
-      }
-    , { short: 'b'
-      , long: 'bold'
-      , callback: () -> print bold
-      }
-    ]
+        { short: 'r'
+        , long: 'red'
+        , callback: () -> print red
+        }
+      , { short: 'b'
+        , long: 'bold'
+        , callback: () -> print bold
+        }
+      ]
   )
 
   println "Hello World!" + reset
@@ -52,6 +53,7 @@ printTime = (argv) ->
 
   iso = false
   argparser.parse(
+    help: true
     options : [
       {
       , short: "i"
@@ -66,6 +68,7 @@ printTime = (argv) ->
 
 argparser.parse(
 
+    help: true
     commands: [
       { command: "sayHello"
       , callback : (argv) -> sayHello argv

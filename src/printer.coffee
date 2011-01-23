@@ -28,6 +28,7 @@ exports.puts = print
 
 println = () ->
 
+  # TODO not dry use apply (or whatever it was) on print with arguments
   Array.prototype.slice.call(arguments).forEach (arg) ->
 
     if typeof arg is "string"
@@ -35,7 +36,7 @@ println = () ->
     else if typeof arg is "function"
       Sys.print arg()
     else
-      Util.inspect arg
+      Sys.print ( Util.inspect arg )
 
   Sys.print "\n"
 

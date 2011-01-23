@@ -14,5 +14,6 @@ simplecli.argparser.parse({
         return println("Hello World!");
       }
     }
-  ]
+  ],
+  help: true
 });

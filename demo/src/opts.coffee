@@ -14,4 +14,5 @@ simplecli.argparser.parse(
     , callback : () -> println "Hello World!"
     }
   ]
+  help: true
 )

@@ -2,9 +2,9 @@
 
 , "description" : "Utility functions to ease command line application development."
 
-, "tags" : ["cli, command line"]
+, "tags" : ["cli", "command line", "helper"]
 
-, "version" : "0.1.0"
+, "version" : "0.1.1"
 
 , "author" : 
     { "name" : "Thomas Schank"

@@ -1,14 +1,29 @@
 path = require 'path'
 fs = require 'fs'
 
-main = path.join(path.dirname(fs.realpathSync(__filename)),'../../')
-lib = main + "lib/"
+child_process = require 'child_process'
+exec = child_process.exec
+
+maindir = path.join(path.dirname(fs.realpathSync(__filename)),'../../')
+libdir = maindir + "lib/"
+lib = libdir
+testdir = maindir + "test/"
+bindir = maindir + "bin/"
+demo = maindir + "demo/lib/"
 
 parser = require lib + "argparser"
 printer = require lib + 'printer'
 println = printer.println
 
 testCase = require('nodeunit').testCase
+ 
+execEnv =
+  encoding: 'utf8'
+  timeout: 0
+  maxBuffer: 200*1024
+  killSignal: 'SIGTERM'
+  cwd: maindir
+  env: null
  
 module.exports = testCase(
 
@@ -65,6 +80,20 @@ module.exports = testCase(
         ]
 
     test.done()
+
+  "help option" : (test) ->
+    test.expect 2
+    cmd = "node #{demo}opts.js --help"
+    exec cmd , execEnv,(err,stdout,sterr) ->
+      test.ok not err?
+      test.ok (stdout.match /--help/), "'--help' must be present"
+      test.done()
+
+
+
+
+
+
 
 
 )
