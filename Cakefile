@@ -19,25 +19,15 @@ spawnWithOutput = (name,options)->
     console.log('child process exited with code ' + code)
   console.log('spawned child ' + bold + name + " " + options.join(" ") + reset + ' pid: ' + proc.pid)
 
-task 'develop', 'develop CoffeeFiles, watch and compile online', () ->
-
-  invoke 'continuous-build'
-
 task 'build', '', () ->
 
-  exec 'rm  lib/*js demo/lib/*js test/lib/*js '
-  spawnWithOutput 'coffee', ['--bare','-o','lib/','-c', 'src/']
-  spawnWithOutput 'coffee', ['--bare','-o','test/lib/','-c', 'test/src/']
-  spawnWithOutput 'coffee', ['--bare','-o','demo/lib/','-c', 'demo/src/']
-
+  spawnWithOutput 'coffee', ['--bare','-o','.','-c', 'src/']
+ 
 task 'continuous-build', '', () ->
 
-  exec 'rm  lib/*js demo/lib/*js test/lib/*js '
-  spawnWithOutput 'coffee', ['-w','--bare','-o','lib/','-c', 'src/']
-  spawnWithOutput 'coffee', ['-w','--bare','-o','test/lib/','-c', 'test/src/']
-  spawnWithOutput 'coffee', ['-w','--bare','-o','demo/lib/','-c', 'demo/src/']
+  spawnWithOutput 'coffee', ['-w','--bare','-o','.','-c', 'src/']
 
- 
+
 task 'test','run the test suite', () ->
 
   exec 'nodeunit test/lib/',  (err,stdout,stderr) ->

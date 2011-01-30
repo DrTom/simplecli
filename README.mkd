@@ -20,6 +20,8 @@ Usage
 
 See the files in the `demo` directory and in particular the tests. 
 
+### Library `argparser` 
+
 The option parsing is inspired by
 [js-opts](https://bitbucket.org/mazzarelli/js-opts/wiki/Home);
 however it is not equivalent. I consider this implementation
@@ -27,6 +29,14 @@ a bit more friendly for writing tests because it is possible to
 inject an `argv` array as an alternative to use `process.argv`. The
 parsing function doesn't preserve any _state_, so you can call it
 as many times as you like within a process.
+
+### Library `printer`
+
+* Utility functions for printing out stuff to the console.
+
+### Library `string`
+
+* utf8 string-buffer for convenience.
 
 
 Development
@@ -38,5 +48,5 @@ located in the `src` directory.
 
 Tests require the [nodeunit](https://github.com/caolan/nodeunit) framework.
 
-None of the development dependencies is defined in the npm
+None of the build or development dependencies is defined in the npm
 package. 

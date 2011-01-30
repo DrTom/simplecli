@@ -43,16 +43,18 @@ exports.parse = (pargs) ->
       println "\nOptions: "
       pargs.options.forEach (opt) ->
         print "  "
-        print "--"+(opt.short + " or ") if opt.short?
+        print "-"+(opt.short + " or ") if opt.short?
         print "--"+opt.long + " "
         print "<VALUE>" if opt.value?
         print "; " + opt.description if opt.description?
         println ""
 
+      process.exit 0
+
 
     if pargs.help?
       pargs.options = [] if not pargs.options?
-      pargs.options.push {
+      pargs.options.unshift {
         , long: "help"
         , callback: printHelp
         , description: "print out help about commands and options (which you are reading right now)"
