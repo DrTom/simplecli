@@ -1,3 +1,8 @@
+
+This package is **deprecated**. The functionallity is now in the argparser library of [drtoms-nodehelpers](https://github.com/DrTom/drtoms-nodehelpers).
+
+
+
 simplecli
 =========
 

@@ -1,28 +1,26 @@
-{ "name" : "simplecli"
-
+{ "author" : 
+  { "email" : "DrTom@schank.ch"
+  , "name" : "Thomas Schank"
+  , "url" : "http://Dr.Th.Schank.ch/"
+  } 
+, "dependencies" : 
+  { "log4js" : "*"
+  , "underscore" : "*"
+  , "drtoms-logging" : "*"
+  } 
 , "description" : "Utility functions to ease command line application development."
-
-, "tags" : ["cli", "command line", "helper"]
-
-, "version" : "0.1.2"
-
-, "author" : 
-    { "name" : "Thomas Schank"
-    , "email" : "DrTom@schank.ch"
-    , "url" : "http://Dr.Th.Schank.ch/" 
-    }
-
-, "main": "./lib/simplecli"
-  
 , "directories" : 
-    { "lib" : "./lib" 
-    }
-
+  { "lib" : "./lib"
+  } 
 , "engines" : 
-    ["node >=0.2.4"]
-
-, "dependencies": 
-    { 
-    }
-
-}
+  [ "node >=0.2.4"
+  ] 
+, "main" : "./lib/simplecli"
+, "name" : "simplecli"
+, "tags" : 
+  [ "cli"
+  , "command line"
+  , "helper"
+  ] 
+, "version" : "0.1.3"
+} 

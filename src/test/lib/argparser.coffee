@@ -9,7 +9,7 @@ libdir = maindir + "lib/"
 lib = libdir
 testdir = maindir + "test/"
 bindir = maindir + "bin/"
-demo = maindir + "demo/lib/"
+demo = maindir + "demo/"
 
 parser = require lib + "argparser"
 printer = require lib + 'printer'

@@ -1,3 +1,5 @@
 exports.argparser = require('./argparser')
 exports.printer = require('./printer')
 exports.string =  require('./string')
+exports.asynchelper = require('./asynchelper')
+exports.filehelper = require('./filehelper')
